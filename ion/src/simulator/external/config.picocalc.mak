@@ -1,13 +1,15 @@
 # This file is built manually by mimic-ing SDL's Xcode project
 
-SDL_SFLAGS += -Iion/src/simulator/external/sdl/src/video/kmsdrm $(shell pkg-config --cflags libdrm)
+SDL_SFLAGS += -Iion/src/simulator/external/sdl/src/video/kmsdrm 
 # SDL_SFLAGS += -Iion/src/simulator/external/sdl/src/video/khronos
 SDL_SFLAGS += -DHAVE_LIBC
+
+#   core/linux/SDL_evdev.c \
+#   core/linux/SDL_udev.c \
 
 sdl_src += $(addprefix ion/src/simulator/external/sdl/src/, \
   audio/dummy/SDL_dummyaudio.c \
   core/linux/SDL_threadprio.c \
-  core/linux/SDL_evdev.c \
   core/unix/SDL_poll.c \
   file/SDL_rwops.c \
   filesystem/unix/SDL_sysfilesystem.c \
@@ -26,10 +28,10 @@ sdl_src += $(addprefix ion/src/simulator/external/sdl/src/, \
   video/kmsdrm/SDL_kmsdrmevents.c \
   video/kmsdrm/SDL_kmsdrmmouse.c \
   video/kmsdrm/SDL_kmsdrmvideo.c \
-  render/opengl/SDL_render_gl.c \
-  render/opengl/SDL_shaders_gl.c \
 )
 
+#   render/opengl/SDL_render_gl.c \
+#   render/opengl/SDL_shaders_gl.c \
 #   video/x11/SDL_x11clipboard.c \
 #   video/x11/SDL_x11dyn.c \
 #   video/x11/SDL_x11events.c \

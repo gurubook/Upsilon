@@ -15,8 +15,8 @@ ion_src += $(addprefix ion/src/simulator/picocalc/, \
   platform_language.cpp \
 )
 
-SFLAGS += $(shell pkg-config libpng libjpeg --cflags)
-LDFLAGS += $(shell pkg-config libpng libjpeg --libs)
+SFLAGS += $(shell pkg-config libpng libjpeg libdrm --cflags)
+LDFLAGS += $(shell pkg-config libpng libjpeg libdrm --libs)
 
 ion_src += $(addprefix ion/src/simulator/shared/, \
   dummy/haptics_enabled.cpp \
