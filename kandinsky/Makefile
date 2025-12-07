@@ -32,8 +32,8 @@ tests_src += $(addprefix kandinsky/test/,\
 
 code_points = kandinsky/fonts/code_points.h
 
-RASTERIZER_CFLAGS := -std=c99 $(shell pkg-config --cflags freetype2)
-RASTERIZER_LDFLAGS := $(shell pkg-config --libs freetype2)
+RASTERIZER_CFLAGS := -std=c99 $(shell pkg-config freetype2 --cflags)
+RASTERIZER_LDFLAGS := $(shell pkg-config freetype2 --libs)
 
 HAS_LIBPNG := $(shell pkg-config libpng --exists && echo 1)
 ifeq ($(HAS_LIBPNG),1)
