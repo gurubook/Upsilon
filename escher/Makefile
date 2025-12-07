@@ -124,7 +124,7 @@ $(eval $(call rule_for, \
   HOSTCC, \
   escher/image/inliner, \
   escher/image/inliner.c $(addprefix ion/src/external/lz4/, lz4.c lz4hc.c), \
-  $$(HOSTCC) -std=c99 `pkg-config --cflags libpng` $$^ `pkg-config --ldflags libpng` -o $$@, \
+  $$(HOSTCC) -std=c99 `pkg-config --cflags libpng` $$^ `pkg-config --libs libpng` -o $$@, \
   global \
 ))
 
