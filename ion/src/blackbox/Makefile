@@ -31,5 +31,5 @@ $(call object_for,ion/src/shared/log_printf.cpp): SFLAGS=-Iion/include
 $(call object_for,ion/src/shared/console_stdio.cpp): SFLAGS=-Iion/include
 $(call object_for,ion/src/shared/events_stdin.cpp): SFLAGS=-Iion/include
 
-SFLAGS += `libpng-config --cflags`
-LDFLAGS += `libpng-config --ldflags`
+SFLAGS += `pkg-config --cflags libpng`
+LDFLAGS += `pkg-config --ldflags libpng`
