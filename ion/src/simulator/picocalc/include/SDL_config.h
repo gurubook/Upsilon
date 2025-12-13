@@ -147,9 +147,9 @@
 /* Enable video drivers */
 #define SDL_VIDEO_DRIVER_KMSDRM 1
 #define SDL_VIDEO_DRIVER_KMSDRM_DYNAMIC "1"
-#undef SDL_USE_LIBUDEV
-#undef SDL_INPUT_LINUXEV
-#undef HAVE_LIBUDEV_H
+// #undef SDL_USE_LIBUDEV
+// #undef SDL_INPUT_LINUXEV
+// #undef HAVE_LIBUDEV_H
  
 #undef SDL_VIDEO_DRIVER_X11
 // #define SDL_VIDEO_DRIVER_X11 1
@@ -157,7 +157,7 @@
 // #define SDL_VIDEO_OPENGL 1
 // #define SDL_VIDEO_RENDER_OGL 1
 
-#define SDL_INPUT_LINUXKD 1
+// #define SDL_INPUT_LINUXKD 1
 
 /* Enable power support */
 #define SDL_POWER_LINUX 1
