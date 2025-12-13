@@ -2,7 +2,7 @@ ION_SIMULATOR_FILES = 1
 
 # The following lines allow us to use our own SDL_config.h
 # First, make sure an error is raised if we ever use the standard SDL_config.h
-SFLAGS += -DUSING_GENERATED_CONFIG_H -DEPSILON_SDL_SCREEN_ONLY -DSDL_VIDEO_DRIVER_KMSDRM
+SFLAGS += -DUSING_GENERATED_CONFIG_H -DEPSILON_SDL_SCREEN_ONLY -DSDL_VIDEO_DRIVER_KMSDRM -DICONV_INBUF_NONCONST
 # Then use our very own include dir if either SDL.h or SDL_config.h are included
 # Note that this one will appear before ion/src/simulator/external/sdl/include
 # which is added later on in the SDL Makefile
@@ -15,8 +15,9 @@ ion_src += $(addprefix ion/src/simulator/picocalc/, \
   platform_language.cpp \
 )
 
-SFLAGS += $(shell pkg-config libpng libjpeg libdrm --cflags)
-LDFLAGS += $(shell pkg-config libpng libjpeg libdrm --libs)
+
+SFLAGS += $(shell pkg-config sdl2 libpng libjpeg libdrm --cflags)
+LDFLAGS += $(shell pkg-config sdl2 libpng libjpeg libdrm --libs)
 
 ion_src += $(addprefix ion/src/simulator/shared/, \
   dummy/haptics_enabled.cpp \
@@ -24,13 +25,14 @@ ion_src += $(addprefix ion/src/simulator/shared/, \
   dummy/window_callback.cpp \
   actions.cpp \
   clipboard_helper.cpp \
-  collect_registers_x86_64.s \
-  collect_registers.cpp \
   haptics.cpp \
   journal.cpp \
   state_file.cpp \
   store_script.cpp \
 )
+
+ion_src += ion/src/shared/collect_registers.cpp
+
 
 ifeq ($(EPSILON_TELEMETRY),1)
 ion_src += ion/src/simulator/shared/dummy/telemetry_init.cpp

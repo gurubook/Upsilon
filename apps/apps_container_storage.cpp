@@ -54,5 +54,5 @@ int AppsContainerStorage::appIndexFromSnapshot(App::Snapshot * snapshot) {
       return i;
     }
   }
-  return NULL;
+  return 0; //NULL;
 }
