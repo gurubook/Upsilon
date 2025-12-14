@@ -25,6 +25,7 @@ ion_src += $(addprefix ion/src/simulator/shared/, \
   dummy/window_callback.cpp \
   actions.cpp \
   clipboard_helper.cpp \
+  keyboard.cpp \
   haptics.cpp \
   journal.cpp \
   state_file.cpp \
